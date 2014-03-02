@@ -1,0 +1,51 @@
+body { 
+	font-family: arial;
+}
+figure {
+	margin: 0;
+	padding: 0;
+}
+#frutas, #cesta, #listado_cesta {
+	border: 5px solid blue;
+	text-align: center;
+	border-radius: 5px;
+	min-height: 320px;
+	display: inline-block;
+}
+#frutas {
+	width: 250px;
+	float: left;
+	margin-right: 20px;
+}
+.img_frutitas {
+	width: 60px;
+	margin:5px;
+	cursor: move;
+}
+#frutas img:hover {
+	box-shadow: 1px 2px 10px black;
+	border-radius: 5px;
+}
+#frutas img:active {
+	background: #6775EB;
+}
+#cesta{
+	border: 5px dashed blue;
+	width: 500px;
+	height: 300px;
+	float: left;
+}
+#listado_cesta {
+	float: left;
+	margin-left: 20px;
+	width: 150px;
+	height: 320px;
+	border: 5px solid gray;
+	overflow: auto;
+	padding: 5px;
+	text-align: left;
+}
+#listado_cesta span{
+	display: block;
+	text-align: center;
+}	

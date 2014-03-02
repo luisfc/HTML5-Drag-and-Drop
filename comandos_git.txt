@@ -1,0 +1,28 @@
+## COMANDOS GIT
+
+#GIT NORMAL:
+
+git pull --rebase	- 	actualizar el repositorio
+git push		-	subir cambios al repositorio
+git add + archivo	-	añadir un nuevo archivo a un repositorio local
+git diff		-	muestra las diferencias los cambios hechos y lo que se encuentra en la ultima revision o commit  
+git diff --cached	-	muestra los cambios que estas a punto de hacer a la ultima revision
+git status		-	Muestra el estado del repositorio, las acciones realizadas y/o pendientes.	
+git commit		-	Guarda los cambios reliazados en el historial y crear una nueva una revisión.
+git coomit - m 'comentario'	-	
+git commit -am 'comentario'	-	hace un git add junto con el git commit
+
+--------------------------------------------------------------------
+
+#GIT CON SUBVERSION:
+
+git svn rebase	-	actualizar el repositorio
+git svn dcommit -	subir cambios al repositorio
+
+git commit -m "mensaje commit"
+git commit --amend	-	cambiar el comentario del commit
+
+update_all.sh 	-	
+tig	+ archivo	-	examinar los cambios de un repositorio
+git grep abuscar ruta	-	busca patrones especificos en los archivos rastreados 		
+git checkout -f

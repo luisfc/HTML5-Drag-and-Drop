@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang=es>
+	<head>
+		<title>Drag and Drop Elements</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/modernizr.custom.47027.js"></script>
+
+		<script>
+			//(function() {
+			$(document).ready(function(){
+				if(Modernizr.draganddrop){
+						
+						var x = 0;
+						$.event.props.push("dataTransfer");
+
+						$('.img_frutitas').on({
+  						dragstart: function(e) {
+  							//$('#listado_cesta').html("texto" + e.target.id);
+  							e.dataTransfer.setData("text/html", this.id);
+  						}
+  					});
+
+
+						$('#cesta').on({
+  						dragover: function(e) {
+  							e.stopPropagation();
+  							e.preventDefault();
+  							//$('#listado_cesta').html("dragover" + e.target.id);
+  						},
+  						drop: function(e) {
+								e.stopPropagation();
+								e.preventDefault();
+								var img_fruta = e.dataTransfer.getData("text/html");
+
+								$('#listado_cesta').append('<li title="' + img_fruta + '">' + img_fruta + "</li>");
+								b = e.target.id
+								//$('#' + b).append(document.getElementById(img_fruta));
+								$('#cesta').append(document.getElementById(img_fruta));
+								//e.target.appendChild(document.getElementById(img_fruta));
+  						},
+  						change: function () {
+  							console.log("entro" + this.value)
+  						}
+  					});
+
+  					$('#frutas').on({
+  						dragover: function(e) {
+  							e.stopPropagation();
+  							e.preventDefault();
+  							//$('#listado_cesta').html("dragover" + e.target.id);
+  						},
+  						drop: function(e) {
+								e.stopPropagation();
+								e.preventDefault();
+								var img_fruta = e.dataTransfer.getData("text/html");
+								$("#listado_cesta [title='" + img_fruta + "']" ).remove();
+								b = e.target.id
+								//$('#' + b).append(document.getElementById(img_fruta));
+								$('#frutas').append(document.getElementById(img_fruta));
+								//e.target.appendChild(document.getElementById(img_fruta));
+  						}
+  					});			
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<h1 style="margin:0; padding:0;"><img src="images/frutera_logo.gif" alt="La frutera"></h1>
+		<figure id="frutas" class="boxes">
+			<figcaption>Frutas disponibles</figcaption>
+			<img src="images/apple.png" class="img_frutitas" alt="apple" title="apple" id="apple" />
+			<img src="images/banana.png" class="img_frutitas" alt="banana" title="banana" id="banana" />
+			<img src="images/cherry.png" class="img_frutitas" alt="cherry" title="cherry" id="cherry" />
+			<img src="images/kiwi.png" class="img_frutitas" alt="kiwi" title="kiwi" id="kiwi" />
+			<img src="images/lemon.png" class="img_frutitas" alt="lemon" title="lemon" id="lemon" />
+			<img src="images/mango.png" class="img_frutitas" alt="mango" title="mango" id="mango" />
+			<img src="images/orange.png" class="img_frutitas" alt="orange" title="orange" id="orange" />
+			<img src="images/pear.png" class="img_frutitas" alt="pear" title="pear" id="pear" />
+			<img src="images/strawberry.png" class="img_frutitas" alt="strawberry" title="strawberry" id="strawberry" />
+			<img src="images/peach.png" class="img_frutitas" alt="peach" title="peach" id="peach" />
+			<img src="images/tomato.png" class="img_frutitas" alt="tomato" title="tomato" id="tomato" />
+		</figure>
+		
+		<figure id="cesta" class="boxes">
+			<figcaption>Cesta</figcaption>
+		</figure>	
+		<div id="listado_cesta">
+		<span>Lista</span>
+		<ul></div>
+	</body>
+</html>

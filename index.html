@@ -1,93 +1,86 @@
 <!DOCTYPE html>
 <html lang=es>
 	<head>
-		<title>Drag and Drop Elements</title>
-		<meta charset="UTF-8">
+		<title>Drag and Drop Elements - Fruits</title>
+		<meta charset=utf-8>
+    <meta name=description content="Drag and Drop Elements">
+    <meta name="author" content="Luis Fonseca">
+    <meta name=viewport content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/style.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="js/modernizr.custom.47027.js"></script>
-
-		<script>
-			//(function() {
-			$(document).ready(function(){
-				if(Modernizr.draganddrop){
-						
-						var x = 0;
-						$.event.props.push("dataTransfer");
-
-						$('.img_frutitas').on({
-  						dragstart: function(e) {
-  							//$('#listado_cesta').html("texto" + e.target.id);
-  							e.dataTransfer.setData("text/html", this.id);
-  						}
-  					});
-
-
-						$('#cesta').on({
-  						dragover: function(e) {
-  							e.stopPropagation();
-  							e.preventDefault();
-  							//$('#listado_cesta').html("dragover" + e.target.id);
-  						},
-  						drop: function(e) {
-								e.stopPropagation();
-								e.preventDefault();
-								var img_fruta = e.dataTransfer.getData("text/html");
-
-								$('#listado_cesta').append('<li title="' + img_fruta + '">' + img_fruta + "</li>");
-								b = e.target.id
-								//$('#' + b).append(document.getElementById(img_fruta));
-								$('#cesta').append(document.getElementById(img_fruta));
-								//e.target.appendChild(document.getElementById(img_fruta));
-  						},
-  						change: function () {
-  							console.log("entro" + this.value)
-  						}
-  					});
-
-  					$('#frutas').on({
-  						dragover: function(e) {
-  							e.stopPropagation();
-  							e.preventDefault();
-  							//$('#listado_cesta').html("dragover" + e.target.id);
-  						},
-  						drop: function(e) {
-								e.stopPropagation();
-								e.preventDefault();
-								var img_fruta = e.dataTransfer.getData("text/html");
-								$("#listado_cesta [title='" + img_fruta + "']" ).remove();
-								b = e.target.id
-								//$('#' + b).append(document.getElementById(img_fruta));
-								$('#frutas').append(document.getElementById(img_fruta));
-								//e.target.appendChild(document.getElementById(img_fruta));
-  						}
-  					});			
-				}
-			})
-		</script>
-	</head>
+    <script src="js/functions.js"></script>
+ 	</head>
 	<body>
-		<h1 style="margin:0; padding:0;"><img src="images/frutera_logo.gif" alt="La frutera"></h1>
-		<figure id="frutas" class="boxes">
-			<figcaption>Frutas disponibles</figcaption>
-			<img src="images/apple.png" class="img_frutitas" alt="apple" title="apple" id="apple" />
-			<img src="images/banana.png" class="img_frutitas" alt="banana" title="banana" id="banana" />
-			<img src="images/cherry.png" class="img_frutitas" alt="cherry" title="cherry" id="cherry" />
-			<img src="images/kiwi.png" class="img_frutitas" alt="kiwi" title="kiwi" id="kiwi" />
-			<img src="images/lemon.png" class="img_frutitas" alt="lemon" title="lemon" id="lemon" />
-			<img src="images/mango.png" class="img_frutitas" alt="mango" title="mango" id="mango" />
-			<img src="images/orange.png" class="img_frutitas" alt="orange" title="orange" id="orange" />
-			<img src="images/pear.png" class="img_frutitas" alt="pear" title="pear" id="pear" />
-			<img src="images/strawberry.png" class="img_frutitas" alt="strawberry" title="strawberry" id="strawberry" />
-			<img src="images/peach.png" class="img_frutitas" alt="peach" title="peach" id="peach" />
-			<img src="images/tomato.png" class="img_frutitas" alt="tomato" title="tomato" id="tomato" />
-		</figure>
-		
-		<figure id="cesta" class="boxes">
-			<figcaption>Cesta</figcaption>
-		</figure>	
-		<div id="listado_cesta">
-		<span>Lista</span>
-		<ul></div>
+    <style>
+      body{
+        /*background: url(http://www.redlandretailawards.com.au/images/backgrounds/bg-wave-rays-green.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center top;*/
+        background: url(http://www.radioviva.fm.br/images/backgrounds/bg-wave-rays-green.jpg) fixed center top no-repeat;
+        /*background: #d3ff99 url(vines-back.png) -10% 0 repeat-x; */
+      }
+      #main{
+        border: 0px solid green;
+        /*box-shadow: 1px 1px 1px gray;*/
+      }
+      #content{
+        /*border: 1px solid gray;
+        height: 800px;*/
+        margin: 0 auto;
+        width: 1100px;
+      }
+      header{
+        /*background: rgb(212, 239, 245);*/
+      }
+      header .site-name{
+        margin: 0; 
+        padding: 0;
+        margin-left: 70px;
+      }
+    </style>
+        
+    <!--a href="grid.html">Grid</a-->
+    <div id="main">
+      <div id="content">
+        <header>
+          <h1 class="site-name"><img src="images/logo_fruterita.gif" alt="La frutera"></h1>
+        </header>
+  		
+        <section>
+          <article class="side-left">
+            <figure id="frutas" class="boxes">
+        			<!--figcaption>Frutas disponibles</figcaption-->
+        			<img src="images/apple.png" class="img_frutitas" alt="apple" title="apple" id="apple" />
+        			<img src="images/banana.png" class="img_frutitas" alt="banana" title="banana" id="banana" />
+        			<img src="images/cherry.png" class="img_frutitas" alt="cherry" title="cherry" id="cherry" />
+        			<img src="images/kiwi.png" class="img_frutitas" alt="kiwi" title="kiwi" id="kiwi" />
+        			<img src="images/lemon.png" class="img_frutitas" alt="lemon" title="lemon" id="lemon" />
+        			<img src="images/mango.png" class="img_frutitas" alt="mango" title="mango" id="mango" />
+        			<img src="images/orange.png" class="img_frutitas" alt="orange" title="orange" id="orange" />
+        			<img src="images/pear.png" class="img_frutitas" alt="pear" title="pear" id="pear" />
+        			<img src="images/strawberry.png" class="img_frutitas" alt="strawberry" title="strawberry" id="strawberry" />
+        			<img src="images/peach.png" class="img_frutitas" alt="peach" title="peach" id="peach" />
+        			<img src="images/tomato.png" class="img_frutitas" alt="tomato" title="tomato" id="tomato" />
+        		</figure>
+      		</article>
+
+          <article class="side-center">
+            <!--div class="cesta"><img src="images/canasta11.png"/></div-->
+        		<figure id="cesta" class="boxes">
+        			<figcaption>Cesta</figcaption>
+        		</figure>	
+          </article>  
+
+          <article class="side-right">
+        		<div id="listado_cesta">
+        		<span>Lista</span>
+        		<ul></ul></div>
+          </article>
+
+        </section>
+      </div>  
+    </div>
 	</body>
 </html>
